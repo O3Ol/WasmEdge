@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Overview"><meta name="keywords" content="rust, rustlang, rust-lang, wasmedge_sdk"><title>wasmedge_sdk - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="../crates.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" href="https://raw.githubusercontent.com/cncf/artwork/49169bdbc88a7ce3c4a722c641cc2d548bd5c340/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../wasmedge_sdk/index.html"><div class="logo-container"><img src="https://github.com/cncf/artwork/blob/master/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.png?raw=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../wasmedge_sdk/index.html"><div class="logo-container">
+                    <img src="https://github.com/cncf/artwork/blob/master/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.png?raw=true" alt="logo"></div></a><h2 class="location"><a href="#">Crate wasmedge_sdk</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.3.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul></div><section><div class="block"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div></section></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../wasmedge_sdk/index.html">
+                        <img src="https://github.com/cncf/artwork/blob/master/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.png?raw=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">wasmedge_sdk</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/wasmedge_sdk/lib.rs.html#1-254">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="overview"><a href="#overview">Overview</a></h2>
+<p>The <a href="https://crates.io/crates/wasmedge-sdk">wasmedge-sdk</a> crate defines a group of high-level Rust APIs, which are used to build up business applications.</p>
+<p>Notice that <code>WasmEdge Rust SDK</code> uses nightly version of Rust. It’s strongly recommended to use the latest nightly version of Rust.</p>
+<h3 id="versioning-table"><a href="#versioning-table">Versioning Table</a></h3>
+<p>The following table provides the versioning information about each crate of WasmEdge Rust bindings.</p>
+<div><table><thead><tr><th style="text-align: center">wasmedge-sdk</th><th style="text-align: center">WasmEdge lib</th><th style="text-align: center">wasmedge-sys</th><th style="text-align: center">wasmedge-types</th></tr></thead><tbody>
+<tr><td style="text-align: center">0.3.0</td><td style="text-align: center">0.10.1</td><td style="text-align: center">0.8</td><td style="text-align: center">0.2</td></tr>
+<tr><td style="text-align: center">0.1.0</td><td style="text-align: center">0.10.0</td><td style="text-align: center">0.7</td><td style="text-align: center">0.1</td></tr>
+</tbody></table>
+</div><h3 id="build"><a href="#build">Build</a></h3>
+<p>To use or build the <code>wasmedge-sdk</code> crate, the <code>WasmEdge</code> library is required.</p>
+<ul>
+<li>
+<p>If you choose to use <a href="https://github.com/WasmEdge/WasmEdge/blob/master/utils/install.sh">install.sh</a> to install WasmEdge Runtime on your local system. Please use <code>WASMEDGE_INCLUDE_DIR</code> and <code>WASMEDGE_LIB_DIR</code> to specify the paths to the <code>include</code> and <code>lib</code> directories, respectively. For example, use the following commands to specify the paths after using <code>bash install.sh --path=$HOME/wasmedge-install</code> to install WasmEdge Runtime on Ubuntu 20.04:</p>
+<div class="example-wrap"><pre class="language-bash"><code>export WASMEDGE_INCLUDE_DIR=$HOME/wasmedge-install/include
+export WASMEDGE_LIB_DIR=$HOME/wasmedge-install/lib</code></pre></div></li>
+<li>
+<p>If you choose to manually download WasmEdge Runtime binary from <a href="https://github.com/WasmEdge/WasmEdge/releases">WasmEdge Releases Page</a>, it is strongly recommended to place it in <code>$HOME/.wasmedge</code> directory. It looks like below on Ubuntu 20.04. <code>wasmedge-sdk</code> will search the directory automatically, you do not have to set any environment variables for it.</p>
+<div class="example-wrap"><pre class="language-bash"><code>// $HOME/.wasmedge/
+.
+|-- bin
+|   |-- wasmedge
+|   `-- wasmedgec
+|-- include
+|   `-- wasmedge
+|       |-- dense_enum_map.h
+|       |-- enum.inc
+|       |-- enum_configure.h
+|       |-- enum_errcode.h
+|       |-- enum_types.h
+|       |-- int128.h
+|       |-- spare_enum_map.h
+|       |-- version.h
+|       `-- wasmedge.h
+`-- lib64
+    |-- libwasmedge_c.so
+    `-- wasmedge
+        `-- libwasmedgePluginWasmEdgeProcess.so
+
+5 directories, 13 files</code></pre></div></li>
+</ul>
+<h4 id="enable-wasmedge-plugins"><a href="#enable-wasmedge-plugins">Enable WasmEdge Plugins</a></h4>
+<p>If you’d like to enable WasmEdge Plugins (currently, only available on Linux platform), please use <code>WASMEDGE_PLUGIN_PATH</code> environment variable to specify the path to the directory containing the plugins. For example, use the following commands to specify the path on Ubuntu 20.04:</p>
+<div class="example-wrap"><pre class="language-bash"><code>export WASMEDGE_PLUGIN_PATH=$HOME/.wasmedge/lib/wasmedge</code></pre></div><h3 id="example"><a href="#example">Example</a></h3>
+<p>The example below is using <code>wasmedge-sdk</code> to run a WebAssembly module written with its WAT format (textual format):</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// If the version of rust used is less than v1.63, please uncomment the follow attribute.</span>
+<span class="comment">// #![feature(explicit_generic_args_with_impl_trait)]</span>
+
+<span class="kw">use</span> <span class="ident">wasmedge_sdk</span>::{<span class="ident">Executor</span>, <span class="ident">FuncTypeBuilder</span>, <span class="ident">ImportObjectBuilder</span>, <span class="ident">Module</span>, <span class="ident">Store</span>};
+<span class="kw">use</span> <span class="ident">wasmedge_sys::WasmValue</span>;
+<span class="kw">use</span> <span class="ident">wasmedge_types::wat2wasm</span>;
+ 
+<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">test</span>, <span class="ident">test</span>)]</span>
+<span class="kw">fn</span> <span class="ident">main</span>() -&gt; <span class="ident">anyhow::Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="ident">wasm_bytes</span> <span class="op">=</span> <span class="ident">wat2wasm</span>(
+        <span class="string">br#&quot;
+(module
+  ;; First we define a type with no parameters and no results.
+  (type $no_args_no_rets_t (func (param) (result)))
+ 
+  ;; Then we declare that we want to import a function named &quot;env&quot; &quot;say_hello&quot; with
+  ;; that type signature.
+  (import &quot;env&quot; &quot;say_hello&quot; (func $say_hello (type $no_args_no_rets_t)))
+ 
+  ;; Finally we create an entrypoint that calls our imported function.
+  (func $run (type $no_args_no_rets_t)
+    (call $say_hello))
+  ;; And mark it as an exported function named &quot;run&quot;.
+  (export &quot;run&quot; (func $run)))
+&quot;#</span>,
+    )<span class="question-mark">?</span>;
+ 
+    <span class="comment">// We define a function to act as our &quot;env&quot; &quot;say_hello&quot; function imported in the</span>
+    <span class="comment">// Wasm program above.</span>
+    <span class="kw">fn</span> <span class="ident">say_hello_world</span>(<span class="ident">_inputs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">WasmValue</span><span class="op">&gt;</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">WasmValue</span><span class="op">&gt;</span>, <span class="ident">u8</span><span class="op">&gt;</span> {
+        <span class="macro">println!</span>(<span class="string">&quot;Hello, world!&quot;</span>);
+ 
+        <span class="prelude-val">Ok</span>(<span class="macro">vec!</span>[])
+    }
+ 
+    <span class="comment">// create an import module</span>
+    <span class="kw">let</span> <span class="ident">import</span> <span class="op">=</span> <span class="ident">ImportObjectBuilder::new</span>()
+        .<span class="ident">with_func</span>::<span class="op">&lt;</span>(), ()<span class="op">&gt;</span>(<span class="string">&quot;say_hello&quot;</span>, <span class="ident">Box::new</span>(<span class="ident">say_hello_world</span>))<span class="question-mark">?</span>
+        .<span class="ident">build</span>(<span class="string">&quot;env&quot;</span>)<span class="question-mark">?</span>;
+ 
+    <span class="comment">// loads a wasm module from the given in-memory bytes</span>
+    <span class="kw">let</span> <span class="ident">module</span> <span class="op">=</span> <span class="ident">Module::from_bytes</span>(<span class="prelude-val">None</span>, <span class="kw-2">&amp;</span><span class="ident">wasm_bytes</span>)<span class="question-mark">?</span>;
+ 
+    <span class="comment">// create an executor</span>
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">executor</span> <span class="op">=</span> <span class="ident">Executor::new</span>(<span class="prelude-val">None</span>, <span class="prelude-val">None</span>)<span class="question-mark">?</span>;
+ 
+    <span class="comment">// create a store</span>
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">store</span> <span class="op">=</span> <span class="ident">Store::new</span>()<span class="question-mark">?</span>;
+ 
+    <span class="comment">// register the module into the store</span>
+    <span class="ident">store</span>.<span class="ident">register_import_module</span>(<span class="kw-2">&amp;mut</span> <span class="ident">executor</span>, <span class="kw-2">&amp;</span><span class="ident">import</span>)<span class="question-mark">?</span>;
+    <span class="kw">let</span> <span class="ident">extern_instance</span> <span class="op">=</span> <span class="ident">store</span>.<span class="ident">register_named_module</span>(<span class="kw-2">&amp;mut</span> <span class="ident">executor</span>, <span class="string">&quot;extern&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">module</span>)<span class="question-mark">?</span>;
+ 
+    <span class="comment">// get the exported function &quot;run&quot;</span>
+    <span class="kw">let</span> <span class="ident">run</span> <span class="op">=</span> <span class="ident">extern_instance</span>.<span class="ident">func</span>(<span class="string">&quot;run&quot;</span>).<span class="ident">ok_or</span>(<span class="ident">anyhow::Error::msg</span>(
+        <span class="string">&quot;Not found exported function named &#39;run&#39;.&quot;</span>,
+    ))<span class="question-mark">?</span>;
+ 
+    <span class="comment">// run host function</span>
+    <span class="ident">run</span>.<span class="ident">call</span>(<span class="kw-2">&amp;mut</span> <span class="ident">executor</span>, [])<span class="question-mark">?</span>;
+ 
+    <span class="prelude-val">Ok</span>(())
+}
+</code></pre></div>
+<p><a href="https://github.com/WasmEdge/WasmEdge/tree/master/bindings/rust/wasmedge-sdk/examples">[Click for more examples]</a></p>
+<h3 id="see-also"><a href="#see-also">See also</a></h3>
+<ul>
+<li><a href="https://wasmedge.org/">WasmEdge Runtime</a></li>
+<li><a href="https://github.com/WasmEdge/WasmEdge/blob/master/docs/c_api.md">WasmEdge C API Documentation</a></li>
+<li><a href="https://crates.io/crates/wasmedge-sys">wasmedge-sys: WasmEdge Low-level Rust APIs</a></li>
+<li><a href="https://crates.io/crates/wasmedge-types">wasmedge-types: WasmEdge Types</a></li>
+</ul>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="config/index.html" title="wasmedge_sdk::config mod">config</a></div><div class="item-right docblock-short"><p>Defines the structs used to construct configurations.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="types/index.html" title="wasmedge_sdk::types mod">types</a></div><div class="item-right docblock-short"><p>Defines the general types.</p>
+</div></div></div><h2 id="macros" class="small-section-header"><a href="#macros">Macros</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.params.html" title="wasmedge_sdk::params macro">params</a></div><div class="item-right docblock-short"><p>Used to pass arguments to <a href="struct.Func.html#method.call">Func::call</a>, <a href="struct.FuncRef.html#method.call">FuncRef::call</a>, <a href="trait.Engine.html#tymethod.run_func">Engine::run_func</a>, or <a href="trait.Engine.html#tymethod.run_func_ref">Engine::run_func_ref</a>. Notice that to use the macro, it is required to use <code>WasmVal</code> trait. If the version of rust used is less than v1.63, please place <code>#![feature(explicit_generic_args_with_impl_trait)]</code> on the root of the program.</p>
+</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Compiler.html" title="wasmedge_sdk::Compiler struct">Compiler</a></div><div class="item-right docblock-short"><p>Defines WasmEdge ahead-of-time(AOT) compiler and the relevant APIs.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.CoreVersion.html" title="wasmedge_sdk::CoreVersion struct">CoreVersion</a></div><div class="item-right docblock-short"><p>The version info of WasmEdge core</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Executor.html" title="wasmedge_sdk::Executor struct">Executor</a></div><div class="item-right docblock-short"><p>Defines an execution environment for both pure WASM and compiled WASM.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ExportType.html" title="wasmedge_sdk::ExportType struct">ExportType</a></div><div class="item-right docblock-short"><p>Defines the types of the exported instances.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Func.html" title="wasmedge_sdk::Func struct">Func</a></div><div class="item-right docblock-short"><p>Defines a host function instance.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.FuncRef.html" title="wasmedge_sdk::FuncRef struct">FuncRef</a></div><div class="item-right docblock-short"><p>Defines a reference to a <a href="struct.Func.html">host function</a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.FuncTypeBuilder.html" title="wasmedge_sdk::FuncTypeBuilder struct">FuncTypeBuilder</a></div><div class="item-right docblock-short"><p>Defines a type builder for creating a <a href="https://wasmedge.github.io/WasmEdge/wasmedge_types/struct.FuncType.html">FuncType</a> instance.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Global.html" title="wasmedge_sdk::Global struct">Global</a></div><div class="item-right docblock-short"><p>Defines a WebAssembly global variable, which stores a single value of the given <a href="https://wasmedge.github.io/WasmEdge/wasmedge_types/struct.GlobalType.html">GlobalType</a> and a flag indicating whether it is mutable or not.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ImportObject.html" title="wasmedge_sdk::ImportObject struct">ImportObject</a></div><div class="item-right docblock-short"><p>Defines an import object that contains the required import data used when instantiating a <a href="struct.Module.html">module</a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ImportObjectBuilder.html" title="wasmedge_sdk::ImportObjectBuilder struct">ImportObjectBuilder</a></div><div class="item-right docblock-short"><p>Creates a normal, wasi, or wasmedge process <a href="struct.ImportObject.html">import object</a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ImportType.html" title="wasmedge_sdk::ImportType struct">ImportType</a></div><div class="item-right docblock-short"><p>Defines the types of the imported instances.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Instance.html" title="wasmedge_sdk::Instance struct">Instance</a></div><div class="item-right docblock-short"><p>Represents an instantiated module.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Memory.html" title="wasmedge_sdk::Memory struct">Memory</a></div><div class="item-right docblock-short"><p>Defines a linear memory.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Module.html" title="wasmedge_sdk::Module struct">Module</a></div><div class="item-right docblock-short"><p>Defines compiled in-memory representation of an input WASM binary.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Statistics.html" title="wasmedge_sdk::Statistics struct">Statistics</a></div><div class="item-right docblock-short"><p>Used to collect statistics of the WasmEdge runtime, such as the count of instructions in execution.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Store.html" title="wasmedge_sdk::Store struct">Store</a></div><div class="item-right docblock-short"><p>Represents all global state that can be manipulated by WebAssembly programs. A <a href="struct.Store.html">store</a> consists of the runtime representation of all instances of <a href="struct.Func.html">functions</a>, <a href="struct.Table.html">tables</a>, <a href="struct.Memory.html">memories</a>, and <a href="struct.Global.html">globals</a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Table.html" title="wasmedge_sdk::Table struct">Table</a></div><div class="item-right docblock-short"><p>Defines a table storing the references to host functions or external objects.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Vm.html" title="wasmedge_sdk::Vm struct">Vm</a></div><div class="item-right docblock-short"><p>A <a href="struct.Vm.html" title="Vm">Vm</a> defines a virtual environment for managing WebAssembly programs.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WasiInstance.html" title="wasmedge_sdk::WasiInstance struct">WasiInstance</a></div><div class="item-right docblock-short"><p>Represents a wasi module instance.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WasmEdgeProcessInstance.html" title="wasmedge_sdk::WasmEdgeProcessInstance struct">WasmEdgeProcessInstance</a></div><div class="item-right docblock-short"><p>Represents a wasmedge_process module instance.</p>
+</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Engine.html" title="wasmedge_sdk::Engine trait">Engine</a></div><div class="item-right docblock-short"><p>The object that is used to perform a <a href="struct.Func.html">host function</a> is required to implement this trait.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.WasmVal.html" title="wasmedge_sdk::WasmVal trait">WasmVal</a></div><div class="item-right docblock-short"><p>Defines the function converting a value of Rust type to the one of Wasm type.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.WasmValType.html" title="wasmedge_sdk::WasmValType trait">WasmValType</a></div><div class="item-right docblock-short"><p>Describes the mapping of Rust type to Wasm type.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.WasmValTypeList.html" title="wasmedge_sdk::WasmValTypeList trait">WasmValTypeList</a></div><div class="item-right docblock-short"><p>Describes the mapping of a tuple of Rust types to Wasm types.</p>
+</div></div></div><h2 id="types" class="small-section-header"><a href="#types">Type Definitions</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="type" href="type.WasmValue.html" title="wasmedge_sdk::WasmValue type">WasmValue</a></div><div class="item-right docblock-short"></div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="wasmedge_sdk" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (d394408fb 2022-08-07)" ></div></body></html>

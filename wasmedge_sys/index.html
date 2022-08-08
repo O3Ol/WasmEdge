@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Overview"><meta name="keywords" content="rust, rustlang, rust-lang, wasmedge_sys"><title>wasmedge_sys - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="../crates.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" href="https://raw.githubusercontent.com/cncf/artwork/49169bdbc88a7ce3c4a722c641cc2d548bd5c340/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../wasmedge_sys/index.html"><div class="logo-container"><img src="https://github.com/cncf/artwork/blob/master/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.png?raw=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../wasmedge_sys/index.html"><div class="logo-container">
+                    <img src="https://github.com/cncf/artwork/blob/master/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.png?raw=true" alt="logo"></div></a><h2 class="location"><a href="#">Crate wasmedge_sys</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.8.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul></div><section><div class="block"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div></section></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../wasmedge_sys/index.html">
+                        <img src="https://github.com/cncf/artwork/blob/master/projects/wasm-edge-runtime/icon/color/wasm-edge-runtime-icon-color.png?raw=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">wasmedge_sys</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/wasmedge_sys/lib.rs.html#1-284">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="overview"><a href="#overview">Overview</a></h2>
+<p>The <a href="https://crates.io/crates/wasmedge-sys">wasmedge-sys</a> crate defines a group of low-level Rust APIs for WasmEdge, a light-weight, high-performance, and extensible WebAssembly runtime for cloud-native, edge, and decentralized applications.</p>
+<p>For developers, it is strongly recommended that the APIs in <code>wasmedge-sys</code> are used to construct high-level libraries, while <code>wasmedge-sdk</code> is for building up business applications.</p>
+<p>Notice that <code>WasmEdge Rust SDK</code> uses nightly version of Rust. It’s strongly recommended to use the latest nightly version of Rust.</p>
+<h3 id="versioning-table"><a href="#versioning-table">Versioning Table</a></h3>
+<p>The following table provides the versioning information about each crate of WasmEdge Rust bindings.</p>
+<div><table><thead><tr><th style="text-align: center">wasmedge-sdk</th><th style="text-align: center">WasmEdge lib</th><th style="text-align: center">wasmedge-sys</th><th style="text-align: center">wasmedge-types</th></tr></thead><tbody>
+<tr><td style="text-align: center">0.3.0</td><td style="text-align: center">0.10.1</td><td style="text-align: center">0.8</td><td style="text-align: center">0.2</td></tr>
+<tr><td style="text-align: center">0.1.0</td><td style="text-align: center">0.10.0</td><td style="text-align: center">0.7</td><td style="text-align: center">0.1</td></tr>
+</tbody></table>
+</div><h3 id="build"><a href="#build">Build</a></h3>
+<p>To use or build the <code>wasmedge-sys</code> crate, the <code>WasmEdge</code> library is required.</p>
+<ul>
+<li>
+<p>If you choose to use <a href="https://github.com/WasmEdge/WasmEdge/blob/master/utils/install.sh">install.sh</a> to install WasmEdge Runtime on your local system. Please use <code>WASMEDGE_INCLUDE_DIR</code> and <code>WASMEDGE_LIB_DIR</code> to specify the paths to the <code>include</code> and <code>lib</code> directories, respectively. For example, use the following commands to specify the paths after using <code>bash install.sh --path=$HOME/wasmedge-install</code> to install WasmEdge Runtime on Ubuntu 20.04:</p>
+<div class="example-wrap"><pre class="language-bash"><code>export WASMEDGE_INCLUDE_DIR=$HOME/wasmedge-install/include
+export WASMEDGE_LIB_DIR=$HOME/wasmedge-install/lib</code></pre></div></li>
+<li>
+<p>If you choose to manually download WasmEdge Runtime binary from <a href="https://github.com/WasmEdge/WasmEdge/releases">WasmEdge Releases Page</a>, it is strongly recommended to place it in <code>$HOME/.wasmedge</code> directory. It looks like below on Ubuntu 20.04. <code>wasmedge-sys</code> will search the directory automatically, you do not have to set any environment variables for it.</p>
+<div class="example-wrap"><pre class="language-bash"><code>// $HOME/.wasmedge/
+.
+|-- bin
+|   |-- wasmedge
+|   `-- wasmedgec
+|-- include
+|   `-- wasmedge
+|       |-- dense_enum_map.h
+|       |-- enum.inc
+|       |-- enum_configure.h
+|       |-- enum_errcode.h
+|       |-- enum_types.h
+|       |-- int128.h
+|       |-- spare_enum_map.h
+|       |-- version.h
+|       `-- wasmedge.h
+`-- lib64
+    |-- libwasmedge_c.so
+    `-- wasmedge
+        `-- libwasmedgePluginWasmEdgeProcess.so
+
+5 directories, 13 files</code></pre></div></li>
+</ul>
+<h4 id="enable-wasmedge-plugins"><a href="#enable-wasmedge-plugins">Enable WasmEdge Plugins</a></h4>
+<p>If you’d like to enable WasmEdge Plugins (currently, only available on Linux platform), please use <code>WASMEDGE_PLUGIN_PATH</code> environment variable to specify the path to the directory containing the plugins. For example, use the following commands to specify the path on Ubuntu 20.04:</p>
+<div class="example-wrap"><pre class="language-bash"><code>export WASMEDGE_PLUGIN_PATH=$HOME/.wasmedge/lib/wasmedge</code></pre></div><h3 id="example"><a href="#example">Example</a></h3>
+<p>The following code presents how to use the APIs in <code>wasmedge-sys</code> to run a WebAssembly module written with its WAT format (textual format):</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">wasmedge_sys</span>::{<span class="ident">Vm</span>, <span class="ident">WasmValue</span>};
+<span class="kw">use</span> <span class="ident">wasmedge_types::wat2wasm</span>;
+
+<span class="kw">fn</span> <span class="ident">main</span>() -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::error::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="comment">// read the wasm bytes</span>
+    <span class="kw">let</span> <span class="ident">wasm_bytes</span> <span class="op">=</span> <span class="ident">wat2wasm</span>(
+        <span class="string">br#&quot;
+        (module
+            (export &quot;fib&quot; (func $fib))
+            (func $fib (param $n i32) (result i32)
+             (if
+              (i32.lt_s
+               (get_local $n)
+               (i32.const 2)
+              )
+              (return
+               (i32.const 1)
+              )
+             )
+             (return
+              (i32.add
+               (call $fib
+                (i32.sub
+                 (get_local $n)
+                 (i32.const 2)
+                )
+               )
+               (call $fib
+                (i32.sub
+                 (get_local $n)
+                 (i32.const 1)
+                )
+               )
+              )
+             )
+            )
+           )
+&quot;#</span>,
+    )<span class="question-mark">?</span>;
+
+    <span class="comment">// create a Vm instance</span>
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">vm</span> <span class="op">=</span> <span class="ident">Vm::create</span>(<span class="prelude-val">None</span>, <span class="prelude-val">None</span>)<span class="question-mark">?</span>;
+
+    <span class="comment">// register the wasm bytes</span>
+    <span class="kw">let</span> <span class="ident">module_name</span> <span class="op">=</span> <span class="string">&quot;extern-module&quot;</span>;
+    <span class="ident">vm</span>.<span class="ident">register_wasm_from_bytes</span>(<span class="ident">module_name</span>, <span class="kw-2">&amp;</span><span class="ident">wasm_bytes</span>)<span class="question-mark">?</span>;
+
+    <span class="comment">// run the exported function named &quot;fib&quot;</span>
+    <span class="kw">let</span> <span class="ident">func_name</span> <span class="op">=</span> <span class="string">&quot;fib&quot;</span>;
+    <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="ident">vm</span>.<span class="ident">run_registered_function</span>(<span class="ident">module_name</span>, <span class="ident">func_name</span>, [<span class="ident">WasmValue::from_i32</span>(<span class="number">5</span>)])<span class="question-mark">?</span>;
+
+    <span class="macro">assert_eq!</span>(<span class="ident">result</span>.<span class="ident">len</span>(), <span class="number">1</span>);
+    <span class="macro">assert_eq!</span>(<span class="ident">result</span>[<span class="number">0</span>].<span class="ident">to_i32</span>(), <span class="number">8</span>);
+
+    <span class="prelude-val">Ok</span>(())
+}</code></pre></div>
+<p><a href="https://github.com/WasmEdge/WasmEdge/tree/master/bindings/rust/wasmedge-sys/examples">[Click for more examples]</a></p>
+<h3 id="see-also"><a href="#see-also">See also</a></h3>
+<ul>
+<li><a href="https://wasmedge.org/">WasmEdge Runtime Official Website</a></li>
+<li><a href="https://wasmedge.org/book/en/">WasmEdge Docs</a></li>
+<li><a href="https://github.com/WasmEdge/WasmEdge/blob/master/docs/c_api.md">WasmEdge C API Documentation</a></li>
+</ul>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="types/index.html" title="wasmedge_sys::types mod">types</a></div><div class="item-right docblock-short"><p>Defines the WebAssembly primitive types.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="utils/index.html" title="wasmedge_sys::utils mod">utils</a></div><div class="item-right docblock-short"><p>Defines the versioning and logging functions.</p>
+</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.AsyncResult.html" title="wasmedge_sys::AsyncResult struct">AsyncResult</a></div><div class="item-right docblock-short"><p>Defines the WasmEdge Async result.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Compiler.html" title="wasmedge_sys::Compiler struct">Compiler</a></div><div class="item-right docblock-short"><p>Defines WasmEdge ahead-of-time(AOT) compiler and the relevant APIs.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Config.html" title="wasmedge_sys::Config struct">Config</a></div><div class="item-right docblock-short"><p>Defines Config struct used to check/set the configuration options.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Executor.html" title="wasmedge_sys::Executor struct">Executor</a></div><div class="item-right docblock-short"><p>Defines an execution environment for both pure WASM and compiled WASM.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ExportType.html" title="wasmedge_sys::ExportType struct">ExportType</a></div><div class="item-right docblock-short"><p>Defines the types of the exported wasm values.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.FuncRef.html" title="wasmedge_sys::FuncRef struct">FuncRef</a></div><div class="item-right docblock-short"><p>Defines a reference to a <a href="struct.Function.html">host function</a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.FuncType.html" title="wasmedge_sys::FuncType struct">FuncType</a></div><div class="item-right docblock-short"><p>Defines the type of a <a href="struct.Function.html">host function</a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Function.html" title="wasmedge_sys::Function struct">Function</a></div><div class="item-right docblock-short"><p>Defines a host function.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Global.html" title="wasmedge_sys::Global struct">Global</a></div><div class="item-right docblock-short"><p>Defines a WebAssembly global variable, which stores a single value of the given <a href="struct.GlobalType.html">type</a> and a flag indicating whether it is mutable or not.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.GlobalType.html" title="wasmedge_sys::GlobalType struct">GlobalType</a></div><div class="item-right docblock-short"><p>Defines the type of a wasm global variable.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ImportModule.html" title="wasmedge_sys::ImportModule struct">ImportModule</a></div><div class="item-right docblock-short"><p>An <a href="struct.ImportModule.html" title="ImportModule">ImportModule</a> represents a host module with a name. A host module consists of one or more host <a href="struct.Function.html">function</a>, <a href="struct.Table.html">table</a>, <a href="struct.Memory.html">memory</a>, and <a href="struct.Global.html">global</a> instances,  which are defined outside wasm modules and fed into wasm modules as imports.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ImportType.html" title="wasmedge_sys::ImportType struct">ImportType</a></div><div class="item-right docblock-short"><p>Defines the types of the imported wasm value.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Instance.html" title="wasmedge_sys::Instance struct">Instance</a></div><div class="item-right docblock-short"><p>An <a href="struct.Instance.html" title="Instance">Instance</a> represents an instantiated module. In the instantiation process, An <a href="struct.Instance.html" title="Instance">Instance</a> is created from al<a href="struct.Module.html">Module</a>. From an <a href="struct.Instance.html" title="Instance">Instance</a> the exported <a href="struct.Function.html">functions</a>, <a href="struct.Table.html">tables</a>, <a href="struct.Memory.html">memories</a>, and <a href="struct.Global.html">globals</a> can be fetched.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Loader.html" title="wasmedge_sys::Loader struct">Loader</a></div><div class="item-right docblock-short"><p><a href="struct.Loader.html">Loader</a> is used to load WASM modules from the given WASM files or buffers.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.MemType.html" title="wasmedge_sys::MemType struct">MemType</a></div><div class="item-right docblock-short"><p>Defines the type of a wasm memory instance</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Memory.html" title="wasmedge_sys::Memory struct">Memory</a></div><div class="item-right docblock-short"><p>Defines a WebAssembly memory instance, which is a linear memory described by its <a href="struct.MemType.html">type</a>. Each memory instance consists of a vector of bytes and an optional maximum size, and its size is a multiple of the WebAssembly page size (<em>64KiB</em> of each page).</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Module.html" title="wasmedge_sys::Module struct">Module</a></div><div class="item-right docblock-short"><p>Defines compiled in-memory representation of an input WASM binary.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Statistics.html" title="wasmedge_sys::Statistics struct">Statistics</a></div><div class="item-right docblock-short"><p>Struct of WasmEdge Statistics.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Store.html" title="wasmedge_sys::Store struct">Store</a></div><div class="item-right docblock-short"><p>A <a href="struct.Store.html" title="Store">Store</a> represents all global state that can be manipulated by WebAssembly programs. It consists of the runtime representation of all instances of <a href="struct.Function.html">functions</a>, <a href="struct.Table.html">tables</a>, <a href="struct.Memory.html">memories</a>, and <a href="struct.Global.html">globals</a> that have been allocated during the life time of the <a href="struct.Vm.html">Vm</a>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Table.html" title="wasmedge_sys::Table struct">Table</a></div><div class="item-right docblock-short"><p>A WasmEdge <a href="struct.Table.html" title="Table">Table</a> defines a WebAssembly table instance described by its <a href="struct.TableType.html">type</a>. A table is an array-like structure and stores function references.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.TableType.html" title="wasmedge_sys::TableType struct">TableType</a></div><div class="item-right docblock-short"><p>A WasmEdge <a href="struct.TableType.html" title="TableType">TableType</a> classifies a <a href="struct.Table.html" title="Table">Table</a> instance over elements of element types within a size range.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Validator.html" title="wasmedge_sys::Validator struct">Validator</a></div><div class="item-right docblock-short"><p>Struct of WasmEdge Validator.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Vm.html" title="wasmedge_sys::Vm struct">Vm</a></div><div class="item-right docblock-short"><p>A <a href="struct.Vm.html" title="Vm">Vm</a> defines a virtual environment for managing WebAssembly programs.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WasiModule.html" title="wasmedge_sys::WasiModule struct">WasiModule</a></div><div class="item-right docblock-short"><p>A <a href="struct.WasiModule.html" title="WasiModule">WasiModule</a> is a module instance for the WASI specification.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WasmEdgeProcessModule.html" title="wasmedge_sys::WasmEdgeProcessModule struct">WasmEdgeProcessModule</a></div><div class="item-right docblock-short"><p>A <a href="struct.WasmEdgeProcessModule.html" title="WasmEdgeProcessModule">WasmEdgeProcessModule</a> is a module instance for the WasmEdge_Process specification.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.WasmValue.html" title="wasmedge_sys::WasmValue struct">WasmValue</a></div><div class="item-right docblock-short"><p>Defines a WebAssembly value.</p>
+</div></div></div><h2 id="enums" class="small-section-header"><a href="#enums">Enums</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.ImportObject.html" title="wasmedge_sys::ImportObject enum">ImportObject</a></div><div class="item-right docblock-short"><p>Defines three types of module instances that can be imported into a WasmEdge <a href="struct.Store.html">Store</a> instance.</p>
+</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.AsInstance.html" title="wasmedge_sys::AsInstance trait">AsInstance</a></div><div class="item-right docblock-short"><p>The object as an module instance is required to implement this trait.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Engine.html" title="wasmedge_sys::Engine trait">Engine</a></div><div class="item-right docblock-short"><p>The object that is used to perform a <a href="struct.Function.html">host function</a> is required to implement this trait.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.ImportInstance.html" title="wasmedge_sys::ImportInstance trait">ImportInstance</a></div><div class="item-right docblock-short"><p>The object to be registered into a <a href="struct.Vm.html">Vm</a> or an <a href="struct.Executor.html">Executor</a> instance is required to implement this trait. The object that implements this trait can be registered via the <a href="struct.Vm.html#method.register_wasm_from_import">Vm::register_wasm_from_import</a> function, or the <a href="struct.Executor.html#method.register_import_object">Executor::register_import_object</a> function.</p>
+</div></div></div><h2 id="types" class="small-section-header"><a href="#types">Type Definitions</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="type" href="type.BoxedFn.html" title="wasmedge_sys::BoxedFn type">BoxedFn</a></div><div class="item-right docblock-short"><p>Type alias for a boxed native function. This type is used in thread-safe cases.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="type" href="type.BoxedFnSingle.html" title="wasmedge_sys::BoxedFnSingle type">BoxedFnSingle</a></div><div class="item-right docblock-short"><p>Type alias for a boxed native function. This type is used in non-thread-safe cases.</p>
+</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="wasmedge_sys" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (d394408fb 2022-08-07)" ></div></body></html>
